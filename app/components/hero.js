@@ -1,7 +1,6 @@
 import {
   Stack,
   Flex,
-  Button,
   Text,
   VStack,
   Box,
@@ -13,6 +12,7 @@ import {
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import React from "react";
 
@@ -88,11 +88,19 @@ function HeroSection() {
 }
 
 export default function HeroContainer() {
+  const [backgroundImage, setBackgroundImage] = useState("url(/static.png)");
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/animated.png";
+    img.onload = () => setBackgroundImage("url(/animated.png)");
+  }, []);
+
   return (
     <Flex
       w="full"
       h="100vh"
-      backgroundImage={"url(/test3.png)"}
+      backgroundImage={backgroundImage}
       backgroundSize="cover"
       backgroundPosition="center bottom"
     >
