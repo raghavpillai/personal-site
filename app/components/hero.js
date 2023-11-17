@@ -53,7 +53,7 @@ function HeroSection() {
         >
           <div style={{ height: "4vh" }}></div>
           raghav{" "}
-          <Text as={"span"} color={"rgba(190,50,255,1.0)"}>
+          <Text as={"span"} color={"rgba(150,150,150,1.0)"}>
             pillai
           </Text>
         </Heading>
@@ -61,7 +61,7 @@ function HeroSection() {
           cto @
           <Link
             href="https://speck.chat/"
-            color="rgba(200,50,200,1.0)"
+            color="rgba(150,150,150,1.0)"
             fontWeight="bold"
             isExternal
           >
@@ -92,7 +92,7 @@ export default function HeroContainer() {
     <Flex
       w="full"
       h="100vh"
-      backgroundImage={"url(/test.png)"}
+      backgroundImage={"url(/test3.png)"}
       backgroundSize="cover"
       backgroundPosition="center bottom"
     >
@@ -101,7 +101,6 @@ export default function HeroContainer() {
         height={"full"}
         backdropFilter="auto"
         backdropBlur="10px"
-        backdropBrightness={0.8}
       >
         <VStack
           w="full"

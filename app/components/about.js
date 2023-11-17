@@ -56,14 +56,14 @@ const cardData = [
 
 export default function About() {
   return (
-    <Box height={"75vh"} bg={"rgba(10, 10, 10, 0)"} position={"relative"}>
+    <Box position={"relative"}>
       <Container zIndex={10} p={10} position={"relative"}>
         <Heading color={"white"} mb={5} fontSize={"5xl"} textAlign={"center"}>
           about me
         </Heading>
         <Card
-          bg={"rgba(80, 50, 80, 0.3)"}
-          border={"1px solid rgba(80, 40, 100, 0.2)"}
+          bg={"rgba(40, 40, 40, 0.3)"}
+          border={"1px solid rgba(100, 100, 100, 0.2)"}
         >
           <CardBody>
             <Flex justifyContent="center" alignItems="center">
@@ -105,8 +105,8 @@ export default function About() {
               width={{ base: "full", md: "sm" }}
               minH={"3xs"}
               maxH={"3xs"}
-              bg={"rgba(80, 50, 80, 0.3)"}
-              border={"1px solid rgba(80, 40, 100, 0.2)"}
+              bg={"rgba(40, 40, 40, 0.3)"}
+              border={"1px solid rgba(100, 100, 100, 0.2)"}
             >
               <CardHeader>
                 <HStack justify="space-between">
