@@ -287,6 +287,19 @@ const MobileNavItem = ({ label, children, href }) => {
   );
 };
 
-const MOBILE_NAV_ITEMS = [];
+const MOBILE_NAV_ITEMS = [
+  {
+    label: "GitHub",
+    href: "https://github.com/raghavpillai",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/raghav-pillai/",
+  },
+  {
+    label: "Twitter",
+    href: "https://twitter.com/rag_pil",
+  }
+];
 
 const NAV_ITEMS = [];
