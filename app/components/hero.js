@@ -1,20 +1,20 @@
 import {
-  Stack,
-  Flex,
-  Text,
-  VStack,
   Box,
   Container,
+  Flex,
   Heading,
-  Link,
-  Tooltip,
   IconButton,
+  Link,
+  Stack,
+  Text,
+  Tooltip,
+  VStack,
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const SocialButton = ({ label, href, icon }) => {
   return (
@@ -78,8 +78,13 @@ function HeroSection() {
           />
           <SocialButton
             label="LinkedIn"
-            href="https://www.linkedin.com/company/speck-app/"
+            href="https://www.linkedin.com/in/raghav-pillai/"
             icon={<FaLinkedin />}
+          />
+          <SocialButton
+            label="Twitter"
+            href="https://twitter.com/rag_pil"
+            icon={<FaXTwitter />}
           />
         </Stack>
       </Stack>

@@ -1,18 +1,18 @@
 "use client";
 
 import {
-  Stack,
-  HStack,
-  Container,
   Box,
-  Text,
-  Heading,
-  Flex,
-  Link,
-  Image,
   Card,
   CardBody,
   CardHeader,
+  Container,
+  Flex,
+  HStack,
+  Heading,
+  Image,
+  Link,
+  Stack,
+  Text,
 } from "@chakra-ui/react";
 
 const Logo = ({ src, invert, alt }) => {
@@ -59,7 +59,7 @@ export default function About() {
     <Box position={"relative"}>
       <Container zIndex={10} p={10} position={"relative"}>
         <Heading color={"white"} mb={5} fontSize={"5xl"} textAlign={"center"}>
-          about me
+          me
         </Heading>
         <Card
           bg={"rgba(40, 40, 40, 0.3)"}
@@ -77,7 +77,7 @@ export default function About() {
             </Flex>
             <Text textAlign={"center"} minW={10} maxW={"75w"}>
               currently cto @ speck, building the next generation of llm
-              observability and texting infrastructure
+              observability, development and testing infrastructure
             </Text>
           </CardBody>
         </Card>

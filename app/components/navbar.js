@@ -1,35 +1,34 @@
 "use client";
 
 import {
-  Box,
-  Flex,
-  Text,
-  IconButton,
-  Button,
-  Stack,
-  Collapse,
-  Link,
-  Image,
-  Icon,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  useColorModeValue,
-  useBreakpointValue,
-  useDisclosure,
-} from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  CloseIcon,
+  HamburgerIcon,
 } from "@chakra-ui/icons";
+import {
+  Box,
+  Collapse,
+  Flex,
+  Icon,
+  IconButton,
+  Image,
+  Link,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  Stack,
+  Text,
+  useBreakpointValue,
+  useColorModeValue,
+  useDisclosure
+} from "@chakra-ui/react";
 
 const Logo = () => {
   return (
     <Link href="/" _hover={{ textDecoration: "none" }}>
       <Image
-        src="/raghav.jpeg"
+        src="/raghav.png"
         alt="Raghav"
         boxSize={10}
         marginRight={5}
