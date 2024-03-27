@@ -60,7 +60,7 @@ function HeroSection() {
         <Text color={"gray.300"} maxW={"3xl"} fontSize={"xl"}>
           cto @
           <Link
-            href="https://speck.chat/"
+            href="https://speck.bot/"
             color="rgba(150,150,150,1.0)"
             fontWeight="bold"
             isExternal

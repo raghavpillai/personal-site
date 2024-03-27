@@ -76,8 +76,9 @@ export default function About() {
               />
             </Flex>
             <Text textAlign={"center"} minW={10} maxW={"75w"}>
-              currently cto @ speck, building the next generation of llm
-              observability, development and testing infrastructure
+              currently cto @ speck, building the next generation of web
+              automations. the best ai assistant that automates your web
+              workflows.
             </Text>
           </CardBody>
         </Card>
@@ -139,6 +140,25 @@ export default function About() {
             </Card>
           ))}
         </Stack>
+      </Container>
+      <Container
+        w="full"
+        zIndex={10}
+        p={{ base: 4, md: 10 }}
+        position={"relative"}
+      >
+        <Heading color={"white"} mb={5} fontSize={"5xl"} textAlign={"center"}>
+          Hackathon Dubs
+        </Heading>
+        <Text
+          color={"gray.300"}
+          maxW={"3xl"}
+          fontSize={"xl"}
+          textAlign={"center"}
+        >
+          HackHarvard, HackRice, CalHacks, HackSMU, HackUTD (x2), TAMUHack,
+          HackTX
+        </Text>
       </Container>
     </Box>
   );
