@@ -1,16 +1,12 @@
 "use client";
 import {
   Box,
-  Container,
-  Stack,
-  Text,
-  Image,
-  Grid,
   IconButton,
-  useColorModeValue,
+  Text,
   Tooltip,
+  VStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import { FaLinkedin, FaDiscord } from "react-icons/fa";
 import React from "react";
 
 const SocialButton = ({ label, href, icon }) => {
@@ -36,18 +32,26 @@ const SocialButton = ({ label, href, icon }) => {
 
 export default function Footer() {
   return (
-    <Box color={useColorModeValue("gray.700", "gray.200")}>
-      <Box
-        borderTopWidth={1}
-        borderStyle="solid"
-        borderColor={useColorModeValue("gray.200", "gray.800")}
+    <Box
+      color={"gray.200"}
+      h="100px"
+      borderTopWidth={1}
+      borderStyle="solid"
+      borderColor={"gray.800"}
+      display="flex"
+      alignItems="center"
+      justifyContent="flex-start"
+      paddingLeft={8}
+    >
+      <VStack
+        spacing={2}
+        alignItems="flex-start"
+        justifyContent="center"
+        h="full"
       >
-        <Container as={Stack} maxW="6xl" py={4}>
-          <Text color="gray.500" textAlign={{ base: "center", md: "center" }}>
-            © {new Date().getFullYear()} Pillai
-          </Text>
-        </Container>
-      </Box>
+        <Text color="gray.500">Made with ❤️ in</Text>
+        <Text color="gray.500">San Francisco</Text>
+      </VStack>
     </Box>
   );
 }
