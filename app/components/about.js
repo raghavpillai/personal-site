@@ -14,6 +14,9 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+
+import HackathonCards from "./hackathon-cards";
 
 const Logo = ({ src, invert, alt }) => {
   return (
@@ -53,6 +56,45 @@ const cardData = [
     logoSrc: "/companies/amazon2.webp",
   },
 ];
+
+const CompanyCard = ({ index, company }) => {
+  return (
+    <Card
+      as={motion.div}
+      key={index}
+      width={{ base: "full", md: "sm" }}
+      minH={"3xs"}
+      maxH={"3xs"}
+      bg={"rgba(40, 40, 40, 0.3)"}
+      border={"1px solid rgba(100, 100, 100, 0.2)"}
+      whileHover={{ scale: 1.02 }}
+    >
+      <CardHeader>
+        <HStack justify="space-between">
+          <Heading size="md" marginBottom={3}>
+            {company.title}
+          </Heading>
+          <Logo
+            src={company.logoSrc}
+            invert={company.invert}
+            alt={company.title}
+          />
+        </HStack>
+        <Heading size="sm" fontWeight="semibold" color="gray.400">
+          {company.role}
+        </Heading>
+        <Text pt="2" fontSize="sm" textAlign="right" color="rgb(175, 175, 175)">
+          {company.duration}
+        </Text>
+      </CardHeader>
+      <CardBody>
+        <Text pt="2" fontSize="sm">
+          {company.description}
+        </Text>
+      </CardBody>
+    </Card>
+  );
+};
 
 export default function About() {
   return (
@@ -101,65 +143,20 @@ export default function About() {
           wrap="wrap"
         >
           {cardData.map((card, index) => (
-            <Card
-              key={index}
-              width={{ base: "full", md: "sm" }}
-              minH={"3xs"}
-              maxH={"3xs"}
-              bg={"rgba(40, 40, 40, 0.3)"}
-              border={"1px solid rgba(100, 100, 100, 0.2)"}
-            >
-              <CardHeader>
-                <HStack justify="space-between">
-                  <Heading size="md" marginBottom={3}>
-                    {card.title}
-                  </Heading>
-                  <Logo
-                    src={card.logoSrc}
-                    invert={card.invert}
-                    alt={card.title}
-                  />
-                </HStack>
-                <Heading size="sm" fontWeight="semibold" color="gray.400">
-                  {card.role}
-                </Heading>
-                <Text
-                  pt="2"
-                  fontSize="sm"
-                  textAlign="right"
-                  color="rgb(175, 175, 175)"
-                >
-                  {card.duration}
-                </Text>
-              </CardHeader>
-              <CardBody>
-                <Text pt="2" fontSize="sm">
-                  {card.description}
-                </Text>
-              </CardBody>
-            </Card>
+            <CompanyCard key={index} company={card} />
           ))}
         </Stack>
       </Container>
-      <Container
-        w="full"
-        zIndex={10}
-        p={{ base: 4, md: 10 }}
-        position={"relative"}
+      <Heading
+        color={"white"}
+        mt={10}
+        mb={2}
+        fontSize={"5xl"}
+        textAlign={"center"}
       >
-        <Heading color={"white"} mb={5} fontSize={"5xl"} textAlign={"center"}>
-          Hackathon Dubs
-        </Heading>
-        <Text
-          color={"gray.300"}
-          maxW={"3xl"}
-          fontSize={"xl"}
-          textAlign={"center"}
-        >
-          HackHarvard, HackRice, CalHacks, HackSMU, HackUTD (x2), TAMUHack,
-          HackTX
-        </Text>
-      </Container>
+        hackathon dubs
+      </Heading>
+      <HackathonCards />
     </Box>
   );
 }

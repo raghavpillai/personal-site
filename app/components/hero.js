@@ -12,14 +12,21 @@ import {
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+
+const MotionFlex = motion(Flex);
+const MotionIconButton = motion(IconButton);
+const MotionText = motion(Text);
+const MotionHeading = motion(Heading);
+const MotionBox = motion(Box);
 
 const SocialButton = ({ label, href, icon }) => {
   return (
     <Tooltip label={label}>
-      <IconButton
+      <MotionIconButton
         as="a"
         href={href}
         target="_blank"
@@ -32,6 +39,8 @@ const SocialButton = ({ label, href, icon }) => {
           bg: useColorModeValue("blackAlpha.200", "gray.500"),
         }}
         isRound
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       />
     </Tooltip>
   );
@@ -41,23 +50,44 @@ function HeroSection() {
   return (
     <Container maxW={"5xl"}>
       <Stack
+        as={MotionFlex}
         textAlign={"center"}
         align={"center"}
         spacing={{ base: 8, md: 10 }}
         py={{ base: 20, md: 28 }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        <Heading
+        <MotionHeading
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight={"110%"}
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
         >
           <div style={{ height: "4vh" }}></div>
           raghav{" "}
-          <Text as={"span"} color={"rgba(150,150,150,1.0)"}>
+          <MotionText
+            as={"span"}
+            color={"rgba(150,150,150,1.0)"}
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            delay={1}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
             pillai
-          </Text>
-        </Heading>
-        <Text color={"gray.300"} maxW={"3xl"} fontSize={"xl"}>
+          </MotionText>
+        </MotionHeading>
+        <MotionText
+          color={"gray.300"}
+          maxW={"3xl"}
+          fontSize={"xl"}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
           cto @
           <Link
             href="https://speck.bot/"
@@ -69,7 +99,7 @@ function HeroSection() {
             speck
           </Link>
           <br />i like building stuff
-        </Text>
+        </MotionText>
         <Stack spacing={6} direction={"row"}>
           <SocialButton
             label="GitHub"
@@ -102,18 +132,23 @@ export default function HeroContainer() {
   }, []);
 
   return (
-    <Flex
+    <MotionFlex
       w="full"
       h="100vh"
       backgroundImage={backgroundImage}
       backgroundSize="cover"
       backgroundPosition="center bottom"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2 }}
     >
-      <Box
+      <MotionBox
         width={"full"}
         height={"full"}
         backdropFilter="auto"
-        backdropBlur="10px"
+        initial={{ backdropFilter: "blur(0px)" }}
+        animate={{ backdropFilter: "blur(10px)" }}
+        transition={{ duration: 0.8, delay: 0.2 }}
       >
         <VStack
           w="full"
@@ -122,7 +157,7 @@ export default function HeroContainer() {
         >
           <HeroSection />
         </VStack>
-      </Box>
-    </Flex>
+      </MotionBox>
+    </MotionFlex>
   );
 }
