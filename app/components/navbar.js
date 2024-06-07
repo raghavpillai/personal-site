@@ -21,19 +21,28 @@ import {
   Text,
   useBreakpointValue,
   useColorModeValue,
-  useDisclosure
+  useDisclosure,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
+const MotionFlex = motion(Flex);
+const MotionImage = motion(Image);
+const MotionText = motion(Text);
 
 const Logo = () => {
   return (
     <Link href="/" _hover={{ textDecoration: "none" }}>
-      <Image
+      <MotionImage
         src="/raghav.png"
         alt="Raghav"
         boxSize={10}
         marginRight={5}
         opacity={0.9}
         borderRadius="full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
       />
     </Link>
   );
@@ -43,8 +52,17 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box position="fixed" top={0} left={0} right={0} zIndex="sticky">
-      <Flex
+    <MotionBox
+      position="fixed"
+      top={0}
+      left={0}
+      right={0}
+      zIndex="sticky"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.1 }}
+    >
+      <MotionFlex
         backdropFilter="blur(30px)"
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
@@ -54,6 +72,9 @@ export default function WithSubnavigation() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -72,14 +93,17 @@ export default function WithSubnavigation() {
         <Logo />
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Link href="/" _hover={{ textDecoration: "none" }}>
-            <Text
+            <MotionText
               textAlign={useBreakpointValue({ base: "center", md: "left" })}
               fontFamily={"heading"}
               color={useColorModeValue("gray.800", "white")}
               fontWeight={700}
+              initial={{ x: -10, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
             >
               raghav.live
-            </Text>
+            </MotionText>
           </Link>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -92,38 +116,13 @@ export default function WithSubnavigation() {
           justify={"flex-end"}
           direction={"row"}
           spacing={6}
-        >
-          {/* <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"/auth/signin"}
-          >
-            Sign In
-          </Button> */}
-          {/* <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"purple.500"}
-            href={"https://discord.gg/frnaYYaKj3"}
-            target="_blank"
-            _hover={{
-              bg: "purple.300",
-            }}
-          >
-            Discord
-          </Button> */}
-        </Stack>
-      </Flex>
+        ></Stack>
+      </MotionFlex>
 
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
-    </Box>
+    </MotionBox>
   );
 }
 
@@ -299,7 +298,7 @@ const MOBILE_NAV_ITEMS = [
   {
     label: "Twitter",
     href: "https://twitter.com/rag_pil",
-  }
+  },
 ];
 
 const NAV_ITEMS = [];

@@ -72,10 +72,9 @@ function HeroSection() {
           <MotionText
             as={"span"}
             color={"rgba(150,150,150,1.0)"}
-            initial={{ y: 100, opacity: 0 }}
+            initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            delay={1}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 1, duration: 0.4 }}
           >
             pillai
           </MotionText>
