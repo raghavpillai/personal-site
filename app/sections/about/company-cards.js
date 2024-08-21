@@ -42,7 +42,7 @@ const cardData = [
     role: "Software Engineer Intern",
     duration: "May 2022 - Aug 2022",
     description: "Amazon Astro",
-    logoSrc: "/companies/amazon2.webp",
+    logoSrc: "/companies/amazon.webp",
   },
 ];
 
