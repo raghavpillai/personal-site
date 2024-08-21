@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Flex,
   Heading,
   IconButton,
@@ -48,76 +47,89 @@ const SocialButton = ({ label, href, icon }) => {
 
 function HeroSection() {
   return (
-    <Container maxW={"5xl"}>
-      <Stack
-        as={MotionFlex}
-        textAlign={"center"}
-        align={"center"}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+    <Stack
+      as={MotionFlex}
+      textAlign={"center"}
+      align={"center"}
+      spacing={{ base: 8, md: 10 }}
+      py={{ base: 20, md: 28 }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <MotionText
+        fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
+        lineHeight="110%"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.8 }}
+        fontWeight="bold"
+        mt={10}
       >
-        <MotionHeading
-          fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
-          lineHeight={"110%"}
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
-          <div style={{ height: "4vh" }}></div>
-          raghav{" "}
-          <MotionText
-            as={"span"}
-            color={"rgba(150,150,150,1.0)"}
-            initial={{ y: -10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1, duration: 0.41 }}
-          >
-            pillai
-          </MotionText>
-        </MotionHeading>
+        raghav{" "}
         <MotionText
-          color={"gray.300"}
-          maxW={"3xl"}
-          fontSize={"xl"}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
+          as="span"
+          color={"rgba(150,150,150,1.0)"}
+          initial={{ y: -10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 1, duration: 0.41 }}
         >
-          cto @
-          <Link
-            href="https://speck.bot/"
-            color="rgba(150,150,150,1.0)"
-            fontWeight="bold"
-            isExternal
-          >
-            {" "}
-            speck
-          </Link>
-          <br />i like building stuff
+          pillai
         </MotionText>
-        <Stack spacing={6} direction={"row"}>
-          <SocialButton
-            label="GitHub"
-            href="https://github.com/raghavpillai"
-            icon={<FaGithub />}
-          />
-          <SocialButton
-            label="LinkedIn"
-            href="https://www.linkedin.com/in/raghav-pillai/"
-            icon={<FaLinkedin />}
-          />
-          <SocialButton
-            label="Twitter"
-            href="https://twitter.com/rag_pil"
-            icon={<FaXTwitter />}
-          />
-        </Stack>
+      </MotionText>
+      <MotionText
+        color={"gray.300"}
+        maxW={"3xl"}
+        fontSize={"xl"}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.3, duration: 0.8 }}
+      >
+        cto @
+        <Link
+          href="https://speck.sh/"
+          color="rgba(150,150,150,1.0)"
+          fontWeight="bold"
+          isExternal
+        >
+          {" "}
+          speck
+        </Link>
+        <br />i like building stuff
+      </MotionText>
+      <Stack spacing={6} direction={"row"}>
+        {[
+          {
+            label: "GitHub",
+            href: "https://github.com/raghavpillai",
+            icon: <FaGithub />,
+          },
+          {
+            label: "LinkedIn",
+            href: "https://www.linkedin.com/in/raghav-pillai/",
+            icon: <FaLinkedin />,
+          },
+          {
+            label: "Twitter",
+            href: "https://twitter.com/rag_pil",
+            icon: <FaXTwitter />,
+          },
+        ].map((social, index) => (
+          <MotionBox
+            key={social.label}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 + index * 0.2, duration: 0.5 }}
+          >
+            <SocialButton
+              label={social.label}
+              href={social.href}
+              icon={social.icon}
+            />
+          </MotionBox>
+        ))}
       </Stack>
-    </Container>
+    </Stack>
   );
 }
 
@@ -140,6 +152,7 @@ export default function HeroContainer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2 }}
+      mb={10}
     >
       <MotionBox
         width={"full"}

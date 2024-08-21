@@ -95,7 +95,6 @@ export default function WithSubnavigation() {
           <Link href="/" _hover={{ textDecoration: "none" }}>
             <MotionText
               textAlign={useBreakpointValue({ base: "center", md: "left" })}
-              fontFamily={"heading"}
               color={useColorModeValue("gray.800", "white")}
               fontWeight={700}
               initial={{ x: -10, opacity: 0 }}

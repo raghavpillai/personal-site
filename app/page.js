@@ -2,18 +2,16 @@
 
 import { Flex } from "@chakra-ui/react";
 
-import Navbar from "./components/navbar";
-import About from "./components/about";
-import Footer from "./components/footer";
-import Hero from "./components/hero";
+import About from "./sections/about/about";
+import Footer from "./sections/footer";
+import Hero from "./sections/hero";
+import Navbar from "./sections/navbar";
 
 export default function Home() {
   return (
     <Flex direction="column" minH="100vh">
-      <title>Raghav Pillai</title>
       <Navbar />
       <Hero />
-      <div style={{ height: "10vh" }}></div>
       <About />
       <Footer />
     </Flex>

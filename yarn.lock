@@ -991,16 +991,6 @@
   resolved "https://registry.npmjs.org/@emotion/weak-memoize/-/weak-memoize-0.3.1.tgz"
   integrity sha512-EsBwpc7hBUJWAsNPBmJy4hxWx12v6bshQsldrVmjxJoc3isbxhOrF2IcCpaXxfvq03NwkI7sbsOLXbYuqF/8Ww==
 
-"@fontsource/open-sans@^5.0.17":
-  version "5.0.17"
-  resolved "https://registry.npmjs.org/@fontsource/open-sans/-/open-sans-5.0.17.tgz"
-  integrity sha512-4mIAJ/1B9pltG7NhxqReeu46L1+j/eAgwWmvjXh+FhsgcgsboQDrfn9wtUP2PWB7/JrMA4Hd9N/4qAN6kJSdyg==
-
-"@fontsource/raleway@^5.0.15":
-  version "5.0.15"
-  resolved "https://registry.npmjs.org/@fontsource/raleway/-/raleway-5.0.15.tgz"
-  integrity sha512-L1QfDwgBESrR55qYCQasxb2tONFhyiTsf07E5EZLH5vWL968GKXZu6fE+yk2uiOATVBzgY5QJTJ+HEmu/pJbuA==
-
 "@huggingface/inference@^2.6.7":
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/@huggingface/inference/-/inference-2.6.7.tgz#9ae10a7c8cef90a53d8336ebb0ce98cc9576fa5b"

@@ -1,39 +1,14 @@
-import {
-  Box,
-  HStack,
-  IconButton,
-  Image,
-  SimpleGrid,
-  Text,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { Box, HStack, IconButton, SimpleGrid, Text } from "@chakra-ui/react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { FaGithub } from "react-icons/fa";
 
-import { useRef, useState } from "react";
-
 const MotionBox = motion(Box);
+const MotionSimpleGrid = motion(SimpleGrid);
 
 const HackathonCard = ({ index, hackathon }) => {
   const cardRef = useRef(null);
-  const [isMouseEntered, setIsMouseEntered] = useState(false);
-
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = -(e.clientX - rect.left - rect.width / 2) / 10; // Reduced divisor for stronger perspective
-    const y = -(e.clientY - rect.top - rect.height / 2) / 10; // Reduced divisor for stronger perspective
-    cardRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-  };
-
-  const handleMouseEnter = () => {
-    setIsMouseEntered(true);
-  };
-
-  const handleMouseLeave = () => {
-    if (!cardRef.current) return;
-    setIsMouseEntered(false);
-    cardRef.current.style.transform = "rotateY(0deg) rotateX(0deg)";
-  };
+  const isInView = useInView(cardRef, { once: true, amount: 0.1 });
 
   return (
     <MotionBox
@@ -42,29 +17,34 @@ const HackathonCard = ({ index, hackathon }) => {
       borderRadius="lg"
       borderWidth="1px"
       borderColor={"gray.800"}
-      style={{ perspective: 1500 }} // Increased perspective value for a more pronounced effect
-      onMouseEnter={handleMouseEnter}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      transition={{ duration: 1 }}
-      initial={{ transform: "rotateY(0deg) rotateX(0deg)" }}
+      whileHover={{ scale: 1.05 }}
+      bgGradient={`linear(to-t, rgba(30, 30, 30, 0.5), rgba(10, 10, 10, 0) 30%)`}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <Image
-        src={hackathon.src}
-        alt={hackathon.name}
+      <Box
+        className="image_preview_container"
         w="full"
         height="200px"
-        fit="cover"
-        objectPosition="center"
-        borderTopRadius={"lg"}
-      />
-      <Box w="full" h="5px" bg="rgba(40, 40, 40, 0.5)"></Box>
-      <Box
-        p={4}
-        w="full"
-        bgGradient={`linear(to-b, rgba(40, 40, 40, 0.5), rgba(10, 10, 10, 0))`}
-        borderBottomRadius={"lg"}
+        borderTopRadius="lg"
+        sx={{
+          maskImage:
+            "linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
+        }}
       >
+        <Box
+          className="image_preview"
+          w="full"
+          height="100%"
+          backgroundImage={`url(${hackathon.src})`}
+          backgroundSize="cover"
+          backgroundPosition="center"
+        />
+      </Box>
+      <Box p={4} w="full" borderBottomRadius={"lg"}>
         <HStack justifyContent="space-between">
           <HStack>
             <IconButton
@@ -93,6 +73,8 @@ const HackathonCard = ({ index, hackathon }) => {
   );
 };
 const HackathonCards = () => {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: false, amount: 0.2 });
   const hackathons = [
     {
       hackathon: "HackHarvard 2023",
@@ -163,11 +145,28 @@ const HackathonCards = () => {
   ];
 
   return (
-    <SimpleGrid minChildWidth="300px" spacing="40px" p={8}>
-      {[...hackathons].map((hackathon, index) => (
-        <HackathonCard key={index} hackathon={hackathon} />
-      ))}
-    </SimpleGrid>
+    <MotionSimpleGrid
+      ref={containerRef}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5 }}
+    >
+      <Text
+        color="white"
+        mt={10}
+        mb={2}
+        fontSize="5xl"
+        textAlign="center"
+        fontWeight="bold"
+      >
+        hackathon dubs
+      </Text>
+      <SimpleGrid minChildWidth="300px" spacing="40px" p={8}>
+        {[...hackathons].map((hackathon, index) => (
+          <HackathonCard key={index} index={index} hackathon={hackathon} />
+        ))}
+      </SimpleGrid>
+    </MotionSimpleGrid>
   );
 };
 
