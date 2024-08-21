@@ -126,7 +126,7 @@ const CompanyCard = ({ index, company, delay }) => {
 
 export default function CompanyCards() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
     <Box
