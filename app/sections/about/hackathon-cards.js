@@ -11,65 +11,69 @@ const HackathonCard = ({ index, hackathon }) => {
   const isInView = useInView(cardRef, { once: true, amount: 0.1 });
 
   return (
-    <MotionBox
+    <motion.div
       ref={cardRef}
-      key={index}
-      borderRadius="lg"
-      borderWidth="1px"
-      borderColor={"gray.800"}
-      whileHover={{ scale: 1.05 }}
-      bgGradient={`linear(to-t, rgba(30, 30, 30, 0.5), rgba(10, 10, 10, 0) 30%)`}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <Box
-        className="image_preview_container"
-        w="full"
-        height="200px"
-        borderTopRadius="lg"
-        sx={{
-          maskImage:
-            "linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-        }}
+      <MotionBox
+        key={index}
+        borderRadius="lg"
+        borderWidth="1px"
+        borderColor={"gray.800"}
+        whileHover={{ scale: 1.02 }}
+        bgGradient={`linear(to-t, rgba(30, 30, 30, 0.5), rgba(10, 10, 10, 0) 30%)`}
+        transition={{ duration: 0.1 }}
       >
         <Box
-          className="image_preview"
+          className="image_preview_container"
           w="full"
-          height="100%"
-          backgroundImage={`url(${hackathon.src})`}
-          backgroundSize="cover"
-          backgroundPosition="center"
-        />
-      </Box>
-      <Box p={4} w="full" borderBottomRadius={"lg"}>
-        <HStack justifyContent="space-between">
-          <HStack>
-            <IconButton
-              icon={<FaGithub />}
-              as="a"
-              href={hackathon.link}
-              target="_blank"
-              rounded={"full"}
-              size="sm"
-              colorScheme={"gray"}
-            />
-            <Text fontSize={"lg"} fontWeight="900">
-              {hackathon.name}
+          height="200px"
+          borderTopRadius="lg"
+          sx={{
+            maskImage:
+              "linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
+          }}
+        >
+          <Box
+            className="image_preview"
+            w="full"
+            height="100%"
+            backgroundImage={`url(${hackathon.src})`}
+            backgroundSize="cover"
+            backgroundPosition="center"
+          />
+        </Box>
+        <Box p={4} w="full" borderBottomRadius={"lg"}>
+          <HStack justifyContent="space-between">
+            <HStack>
+              <IconButton
+                icon={<FaGithub />}
+                as="a"
+                href={hackathon.link}
+                target="_blank"
+                rounded={"full"}
+                size="sm"
+                colorScheme={"gray"}
+              />
+              <Text fontSize={"lg"} fontWeight="900">
+                {hackathon.name}
+              </Text>
+            </HStack>
+            <Text fontSize={"lg"} color="gray.400">
+              {hackathon.hackathon}
             </Text>
           </HStack>
-          <Text fontSize={"lg"} color="gray.400">
-            {hackathon.hackathon}
-          </Text>
-        </HStack>
 
-        <Text w="full" mt={4} color="gray.300">
-          {hackathon.description}
-        </Text>
-      </Box>
-    </MotionBox>
+          <Text w="full" mt={4} color="gray.300">
+            {hackathon.description}
+          </Text>
+        </Box>
+      </MotionBox>
+    </motion.div>
   );
 };
 const HackathonCards = () => {
