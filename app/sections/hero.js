@@ -100,6 +100,11 @@ function HeroSection() {
       <Stack spacing={6} direction={"row"}>
         {[
           {
+            label: "Twitter/𝕏..?",
+            href: "https://twitter.com/rag_pil",
+            icon: <FaXTwitter />,
+          },
+          {
             label: "GitHub",
             href: "https://github.com/raghavpillai",
             icon: <FaGithub />,
@@ -108,11 +113,6 @@ function HeroSection() {
             label: "LinkedIn",
             href: "https://www.linkedin.com/in/raghav-pillai/",
             icon: <FaLinkedin />,
-          },
-          {
-            label: "Twitter",
-            href: "https://twitter.com/rag_pil",
-            icon: <FaXTwitter />,
           },
         ].map((social, index) => (
           <MotionBox

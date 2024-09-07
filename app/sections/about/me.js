@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Card, CardBody, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Card, CardBody, Flex, Image, Link, Text } from "@chakra-ui/react";
 
 export default function Me() {
   return (
@@ -27,9 +27,26 @@ export default function Me() {
               marginBottom={5}
             />
           </Flex>
-          <Text textAlign={"center"} minW={10} maxW={"75w"}>
-            currently cto @ speck, an applied AI software lab. building Paige,
-            the world's first AI frontend engineer.
+          <Text textAlign={"center"} minW={10} maxW={"75w"} textColor={"white"}>
+            co-founder @{" "}
+            <Link
+              textColor={"blue.200"}
+              href="https://speck.sh"
+              isExternal
+              fontWeight={"bold"}
+            >
+              speck
+            </Link>
+            , an applied AI software lab. building{" "}
+            <Link
+              textColor={"blue.200"}
+              href="https://paige.sh"
+              isExternal
+              fontWeight={"bold"}
+            >
+              Paige
+            </Link>
+            , the world's first AI frontend engineer.
           </Text>
         </CardBody>
       </Card>

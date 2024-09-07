@@ -1,13 +1,15 @@
 "use client";
 import {
   Box,
+  HStack,
+  Icon,
   IconButton,
   Text,
   Tooltip,
-  VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
+import { FaMapPin } from "react-icons/fa";
 
 const SocialButton = ({ label, href, icon }) => {
   return (
@@ -34,7 +36,7 @@ export default function Footer() {
   return (
     <Box
       color={"gray.200"}
-      h="100px"
+      h="75px"
       borderTopWidth={1}
       borderStyle="solid"
       borderColor={"gray.800"}
@@ -43,15 +45,10 @@ export default function Footer() {
       justifyContent="flex-start"
       paddingLeft={8}
     >
-      <VStack
-        spacing={2}
-        alignItems="flex-start"
-        justifyContent="center"
-        h="full"
-      >
-        <Text color="gray.500">Made with ❤️ in</Text>
-        <Text color="gray.500">San Francisco</Text>
-      </VStack>
+      <HStack spacing={2} alignItems="center" justifyContent="center" h="full">
+        <Icon as={FaMapPin} color="red.300" />
+        <Text color="gray.300">San Francisco</Text>
+      </HStack>
     </Box>
   );
 }
