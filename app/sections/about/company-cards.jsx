@@ -68,7 +68,8 @@ const CompanyCard = ({ index, company, delay }) => {
     >
       <Card
         as={motion.div}
-        width={{ base: "lg", md: "md" }}
+        width="lg"
+        maxW="82vw"
         h="full"
         bg={isHovered ? "rgba(60, 60, 60, 0.3)" : "rgba(40, 40, 40, 0.3)"}
         border="1px solid rgba(100, 100, 100, 0.2)"
