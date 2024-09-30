@@ -12,8 +12,9 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaChevronDown, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { GoChevronDown } from "react-icons/go";
 
 const MotionFlex = motion(Flex);
 const MotionIconButton = motion(IconButton);
@@ -171,21 +172,22 @@ export default function HeroContainer() {
         bottom="10vh"
         left="50%"
         transform="translateX(-50%)"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: [0, 1, 0.5], y: 0 }}
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: [1, 0.5], y: [0, -20] }}
         transition={{
           opacity: {
-            times: [0, 0.5, 1],
-            duration: 2,
+            duration: 1,
             repeat: Infinity,
             repeatType: "reverse",
           },
           y: {
-            duration: 0.5,
+            duration: 1,
+            repeat: Infinity,
+            repeatType: "reverse",
           },
         }}
       >
-        <FaChevronDown size={30} color="gray.500" />
+        <GoChevronDown size={30} color="rgba(50,150,255,1)" />
       </MotionBox>
     </MotionFlex>
   );
