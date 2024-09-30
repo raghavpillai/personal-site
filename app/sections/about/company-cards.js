@@ -48,10 +48,11 @@ const cardData = [
 
 const CompanyCard = ({ index, company, delay }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <motion.div
+      key={index}
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -59,7 +60,7 @@ const CompanyCard = ({ index, company, delay }) => {
     >
       <Card
         as={motion.div}
-        width={{ base: "full", md: "sm" }}
+        width={{ base: "lg", md: "md" }}
         h="full"
         bg={"rgba(40, 40, 40, 0.3)"}
         border={"1px solid rgba(100, 100, 100, 0.2)"}
@@ -126,7 +127,7 @@ const CompanyCard = ({ index, company, delay }) => {
 
 export default function CompanyCards() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <Box

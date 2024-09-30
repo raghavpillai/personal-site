@@ -35,7 +35,7 @@ export default function Me() {
               isExternal
               fontWeight={"bold"}
             >
-              speck
+              speck (yc w24)
             </Link>
             , an applied AI software lab. building{" "}
             <Link

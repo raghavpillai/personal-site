@@ -1,33 +1,47 @@
-import { Box, HStack, IconButton, SimpleGrid, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  HStack,
+  IconButton,
+  SimpleGrid,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 
-const MotionBox = motion(Box);
+const MotionVStack = motion(VStack);
 const MotionSimpleGrid = motion(SimpleGrid);
 
 const HackathonCard = ({ index, hackathon }) => {
   const cardRef = useRef(null);
-  const isInView = useInView(cardRef, { once: true, amount: 0.1 });
+  const isInView = useInView(cardRef, { once: true, amount: 0.4 });
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.div
+    <Card
+      as={motion.div}
+      key={index}
       ref={cardRef}
       initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      borderRadius="lg"
+      borderWidth="1px"
+      borderColor={"gray.800"}
+      bg="rgba(40, 40, 40, 0.3)"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      size="lg"
     >
-      <MotionBox
-        key={index}
-        borderRadius="lg"
-        borderWidth="1px"
-        borderColor={"gray.800"}
+      <MotionVStack
+        w="full"
+        h="full"
         whileHover={{ scale: 1.02 }}
-        bgGradient={`linear(to-t, rgba(30, 30, 30, 0.5), rgba(10, 10, 10, 0) 30%)`}
         transition={{ duration: 0.1 }}
       >
         <Box
-          className="image_preview_container"
           w="full"
           height="200px"
           borderTopRadius="lg"
@@ -72,13 +86,14 @@ const HackathonCard = ({ index, hackathon }) => {
             {hackathon.description}
           </Text>
         </Box>
-      </MotionBox>
-    </motion.div>
+      </MotionVStack>
+    </Card>
   );
 };
 const HackathonCards = () => {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.1 });
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
+
   const hackathons = [
     {
       hackathon: "HackHarvard 2023",
@@ -152,7 +167,7 @@ const HackathonCards = () => {
     <MotionSimpleGrid
       ref={containerRef}
       initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5 }}
     >
       <Text
@@ -165,7 +180,12 @@ const HackathonCards = () => {
       >
         hackathon dubs
       </Text>
-      <SimpleGrid minChildWidth="300px" spacing="40px" p={8}>
+      <SimpleGrid
+        minChildWidth="300px"
+        spacing="40px"
+        p={8}
+        justifyItems="center"
+      >
         {[...hackathons].map((hackathon, index) => (
           <HackathonCard key={index} index={index} hackathon={hackathon} />
         ))}
