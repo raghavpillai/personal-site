@@ -6,13 +6,15 @@ import {
   CardBody,
   CardHeader,
   HStack,
+  Icon,
   Image,
   Link,
   Stack,
-  Text,
+  Text
 } from "@chakra-ui/react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const Logo = ({ src, alt }) => {
   return (
@@ -28,6 +30,7 @@ const cardData = [
     role: "Software Engineer Intern",
     duration: "May 2023 - Sept 2023",
     description: "Anduril Imaging",
+    location: "Boston, MA",
     logoSrc: "/companies/anduril.png",
   },
   {
@@ -35,6 +38,7 @@ const cardData = [
     role: "Researcher",
     duration: "Aug 2021 - Jan 2023",
     description: "Applied Systems Lab: Autonomous Vehicles",
+    location: "Dallas, TX",
     logoSrc: "/companies/utd.svg",
   },
   {
@@ -42,6 +46,7 @@ const cardData = [
     role: "Software Engineer Intern",
     duration: "May 2022 - Aug 2022",
     description: "Amazon Astro",
+    location: "San Francisco, CA",
     logoSrc: "/companies/amazon.webp",
   },
 ];
@@ -49,6 +54,7 @@ const cardData = [
 const CompanyCard = ({ index, company, delay }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
@@ -57,14 +63,18 @@ const CompanyCard = ({ index, company, delay }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: delay * 0.3 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <Card
         as={motion.div}
         width={{ base: "lg", md: "md" }}
         h="full"
-        bg={"rgba(40, 40, 40, 0.3)"}
-        border={"1px solid rgba(100, 100, 100, 0.2)"}
+        bg={isHovered ? "rgba(60, 60, 60, 0.3)" : "rgba(40, 40, 40, 0.3)"}
+        border="1px solid rgba(100, 100, 100, 0.2)"
         whileHover={{ scale: 1.02 }}
+        px={isHovered ? 2 : 0} 
+        transition="padding 0.2s ease-in-out, background-color 0.2s ease-in-out"
       >
         <CardHeader>
           <HStack justify="space-between">
@@ -115,9 +125,13 @@ const CompanyCard = ({ index, company, delay }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: delay * 0.2 + 0.7 }}
           >
-            <Text pt="2" fontSize="sm">
+            <Text fontSize="sm">
               {company.description}
             </Text>
+            <HStack mt={4}>
+              <Icon as={FaMapMarkerAlt} color="gray.500" />
+              <Text fontSize="sm" color="gray.500">{company.location}</Text>
+            </HStack>
           </motion.div>
         </CardBody>
       </Card>

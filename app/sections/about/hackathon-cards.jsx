@@ -29,9 +29,9 @@ const HackathonCard = ({ index, hackathon }) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       borderRadius="lg"
       borderWidth="1px"
-      borderColor={"gray.800"}
-      whileHover={{ scale: 1.02 }}
-      bg="rgba(40, 40, 40, 0.3)"
+      borderColor="gray.800"
+      whileHover={{ scale: 1.02, backgroundColor: "rgba(60, 60, 60, 0.3)" }}
+      bg={isHovered ? "rgba(60, 60, 60, 0.3)" : "rgba(40, 40, 40, 0.3)"}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       size="lg"
