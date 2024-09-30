@@ -12,7 +12,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaChevronDown, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const MotionFlex = motion(Flex);
@@ -154,6 +154,7 @@ export default function HeroContainer() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2 }}
       mb={10}
+      position="relative"
     >
       <Box width={"full"} height={"full"} backdropFilter="blur(10px)">
         <VStack
@@ -164,6 +165,28 @@ export default function HeroContainer() {
           <HeroSection />
         </VStack>
       </Box>
+
+      <MotionBox
+        position="absolute"
+        bottom="10vh"
+        left="50%"
+        transform="translateX(-50%)"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: [0, 1, 0.5], y: 0 }}
+        transition={{
+          opacity: {
+            times: [0, 0.5, 1],
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "reverse",
+          },
+          y: {
+            duration: 0.5,
+          },
+        }}
+      >
+        <FaChevronDown size={30} color="gray.500" />
+      </MotionBox>
     </MotionFlex>
   );
 }
