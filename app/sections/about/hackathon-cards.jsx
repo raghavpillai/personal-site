@@ -1,11 +1,10 @@
 import {
   Box,
-  Card,
   HStack,
   IconButton,
   SimpleGrid,
   Text,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
@@ -20,7 +19,7 @@ const HackathonCard = ({ index, hackathon }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Card
+    <Box
       as={motion.div}
       key={index}
       ref={cardRef}
@@ -66,6 +65,7 @@ const HackathonCard = ({ index, hackathon }) => {
           w="full" 
           borderBottomRadius={"lg"}
           p={4}
+          minH="200px"
         >
           <HStack justifyContent="space-between" transition="padding 0.2s ease-in-out" p={isHovered ? 0 : 1}>
             <HStack>
@@ -92,7 +92,7 @@ const HackathonCard = ({ index, hackathon }) => {
           </Text>
         </Box>
       </MotionVStack>
-    </Card>
+    </Box>
   );
 };
 const HackathonCards = () => {
@@ -120,7 +120,7 @@ const HackathonCards = () => {
       hackathon: "HackUTD X",
       name: "Gold Mine",
       description:
-        "Crawling the web and financial data to accurately predict company performance.",
+        "Crawling the web, general financial and government data to accurately predict current and future company performance.",
       src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/659/761/datas/gallery.jpg",
       link: "https://github.com/NikhilNarvekar123/hackutdgoldman",
     },
@@ -186,10 +186,12 @@ const HackathonCards = () => {
         hackathon dubs
       </Text>
       <SimpleGrid
-        minChildWidth="300px"
+        minChildWidth="350px"
         spacing="40px"
         p={8}
         justifyItems="center"
+        alignItems="center"
+        justifyContent="center"
       >
         {[...hackathons].map((hackathon, index) => (
           <HackathonCard key={index} index={index} hackathon={hackathon} />

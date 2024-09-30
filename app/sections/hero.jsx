@@ -8,8 +8,7 @@ import {
   Text,
   Tooltip,
   VStack,
-  useBreakpointValue,
-  useColorModeValue,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -19,8 +18,6 @@ import { GoChevronDown } from "react-icons/go";
 const MotionFlex = motion(Flex);
 const MotionIconButton = motion(IconButton);
 const MotionText = motion(Text);
-const MotionHStack = motion(HStack);
-const MotionVStack = motion(VStack);
 const MotionBox = motion(Box);
 
 const SocialButton = ({ label, href, icon }) => {
@@ -48,13 +45,13 @@ const SocialButton = ({ label, href, icon }) => {
 
 function HeroSection() {
   return (
-    <VStack align={"center"} justify={"center"} minHeight="100vh">
+    <VStack align={"center"} justify={"center"} minHeight="100vh" w="full" bg="radial-gradient(circle at top, rgba(132, 0, 255, 0.1) 0%, rgba(0,0,0,0) 70%)">
       <MotionText
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.2 }}
       >
-        Hi, I'm
+        hi, i'm
       </MotionText>
       <HStack spacing={6} mb={4}>
         <MotionText
@@ -91,7 +88,7 @@ function HeroSection() {
           cto @{" "}
           <Link
             href="https://speck.sh/"
-            color="rgba(50,100,200,1)"
+            color="rgb(150, 83, 251)"
             fontWeight="bold"
             isExternal
           >
@@ -161,7 +158,6 @@ export default function HeroContainer() {
         <VStack
           w="full"
           justify="center"
-          px={useBreakpointValue({ base: 4, md: 8 })}
         >
           <HeroSection />
         </VStack>
@@ -187,7 +183,7 @@ export default function HeroContainer() {
           },
         }}
       >
-        <GoChevronDown size={30} color="rgba(50,150,255,1)" />
+        <GoChevronDown size={30} color="rgba(132, 0, 255, 1)" />
       </MotionBox>
     </MotionFlex>
   );

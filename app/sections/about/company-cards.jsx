@@ -129,8 +129,8 @@ const CompanyCard = ({ index, company, delay }) => {
               {company.description}
             </Text>
             <HStack mt={4}>
-              <Icon as={FaMapMarkerAlt} color="gray.500" />
-              <Text fontSize="sm" color="gray.500">{company.location}</Text>
+              <Icon as={FaMapMarkerAlt} color="red.600" />
+              <Text fontSize="sm" color="gray.400">{company.location}</Text>
             </HStack>
           </motion.div>
         </CardBody>
