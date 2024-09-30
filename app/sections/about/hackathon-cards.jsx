@@ -30,6 +30,7 @@ const HackathonCard = ({ index, hackathon }) => {
       borderRadius="lg"
       borderWidth="1px"
       borderColor={"gray.800"}
+      whileHover={{ scale: 1.02 }}
       bg="rgba(40, 40, 40, 0.3)"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -38,7 +39,7 @@ const HackathonCard = ({ index, hackathon }) => {
       <MotionVStack
         w="full"
         h="full"
-        whileHover={{ scale: 1.02 }}
+        
         transition={{ duration: 0.1 }}
       >
         <Box
@@ -61,8 +62,12 @@ const HackathonCard = ({ index, hackathon }) => {
             backgroundPosition="center"
           />
         </Box>
-        <Box p={4} w="full" borderBottomRadius={"lg"}>
-          <HStack justifyContent="space-between">
+        <Box 
+          w="full" 
+          borderBottomRadius={"lg"}
+          p={4}
+        >
+          <HStack justifyContent="space-between" transition="padding 0.2s ease-in-out" p={isHovered ? 0 : 1}>
             <HStack>
               <IconButton
                 icon={<FaGithub />}
