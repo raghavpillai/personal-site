@@ -10,12 +10,12 @@ export default function Me() {
       mx="auto"
       p={10}
     >
-      <Text mb={5} fontSize="5xl" textAlign={"center"} fontWeight="bold">
+      <Text mb={5} fontSize="5xl" textAlign="center" fontWeight="bold">
         me
       </Text>
       <Card
-        bg={"rgba(40, 40, 40, 0.3)"}
-        border={"1px solid rgba(100, 100, 100, 0.2)"}
+        bg="rgba(40, 40, 40, 0.3)"
+        border="1px solid rgba(100, 100, 100, 0.2)"
         pb={4}
       >
         <CardBody>
@@ -28,13 +28,13 @@ export default function Me() {
               marginBottom={5}
             />
           </Flex>
-          <Text textAlign={"center"} minW={10} maxW={"75w"} textColor={"white"}>
+          <Text textAlign="center" minW={10} maxW="75w" textColor="white">
             hi, i'm raghav. i'm a co-founder @{" "}
             <Link
               textColor="rgb(150, 83, 251)"
               href="https://speck.sh"
               isExternal
-              fontWeight={"bold"}
+              fontWeight="bold"
             >
               speck
             </Link>
@@ -43,7 +43,7 @@ export default function Me() {
               textColor="rgb(150, 83, 251)"
               href="https://paige.sh"
               isExternal
-              fontWeight={"bold"}
+              fontWeight="bold"
             >
               Paige
             </Link>

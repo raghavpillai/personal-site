@@ -45,7 +45,7 @@ const SocialButton = ({ label, href, icon }) => {
 
 function HeroSection() {
   return (
-    <VStack align={"center"} justify={"center"} minHeight="100vh" w="full" bg="radial-gradient(circle at top, rgba(132, 0, 255, 0.1) 0%, rgba(0,0,0,0) 70%)">
+    <VStack align="center" justify="center" minHeight="100vh" w="full" bg="radial-gradient(circle at top, rgba(132, 0, 255, 0.1) 0%, rgba(0,0,0,0) 70%)">
       <MotionText
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -68,7 +68,7 @@ function HeroSection() {
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight="110%"
           as="span"
-          color={"rgba(150,150,150,1.0)"}
+          color="rgba(150,150,150,1.0)"
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.4 }}
@@ -79,8 +79,8 @@ function HeroSection() {
       </HStack>
       <VStack spacing={4} align="center">
         <MotionText
-          color={"gray.300"}
-          fontSize={"xl"}
+          color="gray.300"
+          fontSize="xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.4 }}
@@ -96,8 +96,8 @@ function HeroSection() {
           </Link>
         </MotionText>
         <MotionText
-          color={"gray.300"}
-          fontSize={"xl"}
+          color="gray.300"
+          fontSize="xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 0.4 }}
@@ -107,7 +107,7 @@ function HeroSection() {
         </MotionText>
       </VStack>
 
-      <Stack spacing={6} direction={"row"}>
+      <Stack spacing={6} direction="row">
         {[
           {
             label: "Twitter/𝕏..?",
@@ -154,7 +154,7 @@ export default function HeroContainer() {
       mb={10}
       position="relative"
     >
-      <Box width={"full"} height={"full"} backdropFilter="blur(10px)">
+      <Box width="full" height="full" backdropFilter="blur(10px)">
         <VStack
           w="full"
           justify="center"

@@ -63,7 +63,7 @@ const HackathonCard = ({ index, hackathon }) => {
         </Box>
         <Box 
           w="full" 
-          borderBottomRadius={"lg"}
+          borderBottomRadius="lg"
           p={4}
           minH="200px"
         >
@@ -74,15 +74,15 @@ const HackathonCard = ({ index, hackathon }) => {
                 as="a"
                 href={hackathon.link}
                 target="_blank"
-                rounded={"full"}
+                rounded="full"
                 size="sm"
-                colorScheme={"gray"}
+                colorScheme="gray"
               />
-              <Text fontSize={"lg"} fontWeight="900">
+              <Text fontSize="lg" fontWeight="900">
                 {hackathon.name}
               </Text>
             </HStack>
-            <Text fontSize={"lg"} color="gray.400">
+            <Text fontSize="lg" color="gray.400">
               {hackathon.hackathon}
             </Text>
           </HStack>

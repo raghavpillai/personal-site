@@ -35,11 +35,11 @@ const SocialButton = ({ label, href, icon }) => {
 export default function Footer() {
   return (
     <Box
-      color={"gray.200"}
+      color="gray.200"
       h="75px"
       borderTopWidth={1}
       borderStyle="solid"
-      borderColor={"gray.800"}
+      borderColor="gray.800"
       display="flex"
       alignItems="center"
       justifyContent="flex-start"

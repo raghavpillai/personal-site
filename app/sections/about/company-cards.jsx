@@ -84,7 +84,7 @@ const CompanyCard = ({ index, company, delay }) => {
               animate={{ opacity: 1 }}
               transition={{ delay: delay * 0.2 + 0.3 }}
             >
-              <Text fontSize={"md"} fontWeight="bold" mb={3}>
+              <Text fontSize="md" fontWeight="bold" mb={3}>
                 {company.title}
               </Text>
             </motion.div>
@@ -101,7 +101,7 @@ const CompanyCard = ({ index, company, delay }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: delay * 0.2 + 0.5 }}
           >
-            <Text fontSize={"lg"} fontWeight="bold" color="gray.300">
+            <Text fontSize="lg" fontWeight="bold" color="gray.300">
               {company.role}
             </Text>
           </motion.div>
