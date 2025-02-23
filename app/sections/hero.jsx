@@ -146,7 +146,7 @@ function HeroSection() {
 export default function HeroContainer() {
   return (
     <MotionFlex
-      w="full"
+      w="100vw"
       h="100vh"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -154,19 +154,11 @@ export default function HeroContainer() {
       mb={10}
       position="relative"
     >
-      <Box width="full" height="full" backdropFilter="blur(10px)">
-        <VStack
-          w="full"
-          justify="center"
-        >
-          <HeroSection />
-        </VStack>
-      </Box>
+        <HeroSection />
 
       <MotionBox
         position="absolute"
         bottom="10vh"
-        left="50%"
         transform="translateX(-50%)"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: [1, 0.5], y: [0, -20] }}
@@ -182,8 +174,11 @@ export default function HeroContainer() {
             repeatType: "reverse",
           },
         }}
+        w="full"
       >
-        <GoChevronDown size={30} color="rgba(132, 0, 255, 1)" />
+        <Box display="flex" justifyContent="center" alignItems="center" w="full">
+          <GoChevronDown size={30} color="rgba(132, 0, 255, 1)" />
+        </Box>
       </MotionBox>
     </MotionFlex>
   );

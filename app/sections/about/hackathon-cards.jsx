@@ -101,6 +101,14 @@ const HackathonCards = () => {
 
   const hackathons = [
     {
+      hackathon: "𝕏AI Hackathon",
+      name: "e𝕏pect",
+      description:
+        "Multi-agent simulation to predict highly realistic human reactions and interaction to tweets.",
+      src: "/hackathons/xai.png",
+      link: "https://github.com/raghavpillai/eXpect",
+    },
+    {
       hackathon: "HackHarvard 2023",
       name: "MindTune",
       description:
