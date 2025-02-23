@@ -21,7 +21,7 @@ export default function Me() {
         <CardBody>
           <Flex justifyContent="center" alignItems="center">
             <Image
-              src="/raghav2.png"
+              src="/me.png"
               alt="Raghav Pillai"
               boxSize={150}
               borderRadius="full"
