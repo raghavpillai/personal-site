@@ -38,16 +38,7 @@ export default function Me() {
             >
               speck
             </Link>
-            , an applied AI software lab. building{" "}
-            <Link
-              textColor="rgb(150, 83, 251)"
-              href="https://paige.sh"
-              isExternal
-              fontWeight="bold"
-            >
-              Paige
-            </Link>
-            , the world's first AI frontend engineer. 
+            
             <br /><br />
             i'm a yc alum (w24). i previously did ml and swe at anduril, autonomous vehicle research at utd, swe at amazon and consulting ranging from seed stage startups to f500 companies. 
           </Text>

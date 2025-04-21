@@ -85,7 +85,7 @@ function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.4 }}
         >
-          cto @{" "}
+          co-founder @{" "}
           <Link
             href="https://speck.sh/"
             color="rgb(150, 83, 251)"
