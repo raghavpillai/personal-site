@@ -1,212 +1,119 @@
-import {
-  Box,
-  HStack,
-  IconButton,
-  SimpleGrid,
-  Text,
-  VStack
-} from "@chakra-ui/react";
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+"use client";
+
 import { FaGithub } from "react-icons/fa";
+import { WarpBlock } from "../../components/terminal";
 
-const MotionVStack = motion(VStack);
-const MotionSimpleGrid = motion(SimpleGrid);
+const projects = [
+  {
+    name: "eXpect",
+    event: "𝕏AI Hackathon",
+    description: "multi-agent simulation to predict realistic human reactions to tweets",
+    link: "https://github.com/raghavpillai/eXpect",
+    src: "/hackathons/xai.png",
+  },
+  {
+    name: "MindTune",
+    event: "HackHarvard 2023",
+    description: "detecting early signs of alzheimer's with eye-tracking & cognitive tests",
+    link: "https://github.com/raghavpillai/MindTune",
+    src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/633/207/datas/gallery.jpg",
+  },
+  {
+    name: "SecondSearch",
+    event: "CalHacks 2023",
+    description: "vector similarity search across large lecture series",
+    link: "https://github.com/KanishkGar/calhacks",
+    src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/646/084/datas/gallery.jpg",
+  },
+  {
+    name: "Gold Mine",
+    event: "HackUTD X",
+    description: "crawling financial and government data to predict company performance",
+    link: "https://github.com/NikhilNarvekar123/hackutdgoldman",
+    src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/659/761/datas/gallery.jpg",
+  },
+  {
+    name: "Swift Rescue",
+    event: "HackRice 13",
+    description: "97% accurate flood prediction with optimized routing and real-time maps",
+    link: "https://github.com/NikhilNarvekar123/SwiftRescue",
+    src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/599/133/datas/gallery.jpg",
+  },
+  {
+    name: "InvestIQ",
+    event: "HackSMU V",
+    description: "stock sentiment analysis on a decentralized cartesi & gcp platform",
+    link: "https://github.com/raghavpillai/InvestIQ",
+    src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/595/769/datas/gallery.jpg",
+  },
+  {
+    name: "AAssistant",
+    event: "TAMUHack 2023",
+    description: "streamlining airline travel with intuitive access to core flight data",
+    link: "https://github.com/raghavpillai/AAssistant",
+    src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/363/502/datas/gallery.jpg",
+  },
+  {
+    name: "SimpliFarm",
+    event: "HackTX 2022",
+    description: "ml-based farming optimization for minimum resource utilization",
+    link: "https://github.com/raghavpillai/Simplifarm",
+    src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/257/479/datas/gallery.jpg",
+  },
+  {
+    name: "HypeInvest",
+    event: "HackUTD VIII",
+    description: "social media data to predict stock performance and public sentiment",
+    link: "https://github.com/raghavpillai/HypeInvest",
+    src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/633/207/datas/gallery.jpg",
+  },
+];
 
-const HackathonCard = ({ index, hackathon }) => {
-  const cardRef = useRef(null);
-  const isInView = useInView(cardRef, { once: true, amount: 0.4 });
-  const [isHovered, setIsHovered] = useState(false);
-
+export default function HackathonCards() {
   return (
-    <Box
-      as={motion.div}
-      key={index}
-      ref={cardRef}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      borderRadius="lg"
-      borderWidth="1px"
-      borderColor="gray.800"
-      whileHover={{ scale: 1.02, backgroundColor: "rgba(60, 60, 60, 0.3)" }}
-      bg={isHovered ? "rgba(60, 60, 60, 0.3)" : "rgba(40, 40, 40, 0.3)"}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      size="lg"
-    >
-      <MotionVStack
-        w="full"
-        h="full"
-        
-        transition={{ duration: 0.1 }}
-      >
-        <Box
-          w="full"
-          height="200px"
-          borderTopRadius="lg"
-          sx={{
-            maskImage:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-          }}
-        >
-          <Box
-            className="image_preview"
-            w="full"
-            height="100%"
-            backgroundImage={`url(${hackathon.src})`}
-            backgroundSize="cover"
-            backgroundPosition="center"
-          />
-        </Box>
-        <Box 
-          w="full" 
-          borderBottomRadius="lg"
-          p={4}
-          minH="200px"
-        >
-          <HStack justifyContent="space-between" transition="padding 0.2s ease-in-out" p={isHovered ? 0 : 1}>
-            <HStack>
-              <IconButton
-                icon={<FaGithub />}
-                as="a"
-                href={hackathon.link}
-                target="_blank"
-                rounded="full"
-                size="sm"
-                colorScheme="gray"
+    <WarpBlock blockIndex={5} prompt="~ ~/site  (0.127s)" command="ls -la ~/hackathons/">
+      <div className="flex flex-col">
+        {projects.map((project) => (
+          <div
+            key={project.name}
+            className="group flex items-start gap-4 py-3 px-2 border-b border-white/[0.02] last:border-b-0 hover:bg-white/[0.015] transition-colors"
+          >
+            <div className="w-[120px] md:w-[150px] h-[78px] md:h-[95px] flex-shrink-0 overflow-hidden border border-white/[0.04] group-hover:border-[#9653fb]/20 transition-colors duration-300">
+              <img
+                src={project.src}
+                alt={project.name}
+                className="w-full h-full object-cover saturate-[0.3] brightness-[0.45] group-hover:saturate-[0.9] group-hover:brightness-[0.95] transition-[filter] duration-400"
               />
-              <Text fontSize="lg" fontWeight="900">
-                {hackathon.name}
-              </Text>
-            </HStack>
-            <Text fontSize="lg" color="gray.400">
-              {hackathon.hackathon}
-            </Text>
-          </HStack>
-
-          <Text w="full" mt={4} color="gray.300">
-            {hackathon.description}
-          </Text>
-        </Box>
-      </MotionVStack>
-    </Box>
-  );
-};
-const HackathonCards = () => {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
-
-  const hackathons = [
-    {
-      hackathon: "𝕏AI Hackathon",
-      name: "e𝕏pect",
-      description:
-        "Multi-agent simulation to predict highly realistic human reactions and interaction to tweets.",
-      src: "/hackathons/xai.png",
-      link: "https://github.com/raghavpillai/eXpect",
-    },
-    {
-      hackathon: "HackHarvard 2023",
-      name: "MindTune",
-      description:
-        "Detecting early signs of Alzheimer's with Eye-Tracking & Cognitive Tests.",
-      src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/633/207/datas/gallery.jpg",
-      link: "https://github.com/raghavpillai/MindTune",
-    },
-    {
-      hackathon: "CalHacks 2023",
-      name: "SecondSearch",
-      description:
-        "Instantly search large lecture series with optimized vector similarity search to answer your questions.",
-      src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/646/084/datas/gallery.jpg",
-      link: "https://github.com/KanishkGar/calhacks",
-    },
-    {
-      hackathon: "HackUTD X",
-      name: "Gold Mine",
-      description:
-        "Crawling the web, general financial and government data to accurately predict current and future company performance.",
-      src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/659/761/datas/gallery.jpg",
-      link: "https://github.com/NikhilNarvekar123/hackutdgoldman",
-    },
-
-    {
-      hackathon: "HackRice 13",
-      name: "Swift Rescue",
-      description:
-        "97% accurate flood prediction, climate news, optimized routes, and real-time maps connecting users and responders.",
-      src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/599/133/datas/gallery.jpg",
-      link: "https://github.com/NikhilNarvekar123/SwiftRescue",
-    },
-    {
-      hackathon: "HackSMU V",
-      name: "InvestIQ",
-      description:
-        "Analyzing the best stocks to trade using daily sentiment analysis across the Internet. Built on a decentralized Cartesi & GCP-based platform.",
-      src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/595/769/datas/gallery.jpg",
-      link: "https://github.com/raghavpillai/InvestIQ",
-    },
-
-    {
-      hackathon: "TAMUHack 2023",
-      name: "AAssistant",
-      description:
-        "A pair of customer and employee applications that streamlines the travel experience by allowing for intuitive and easy access to core airline data.",
-      src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/363/502/datas/gallery.jpg",
-      link: "https://github.com/raghavpillai/AAssistant",
-    },
-    {
-      hackathon: "HackTX 2022",
-      name: "SimpliFarm",
-      description:
-        "Simplifying food production by optimizing farming operations using machine learning. Calculate minimum farming needs and track resource utilization.",
-      src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/257/479/datas/gallery.jpg",
-      link: "https://github.com/raghavpillai/Simplifarm",
-    },
-    {
-      hackathon: "HackUTD VIII",
-      name: "HypeInvest",
-      description:
-        "Use social media data to predict stock performance and provide users with public sentiment data and statistics about the stock in question.",
-      src: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/633/207/datas/gallery.jpg",
-      link: "https://github.com/raghavpillai/HypeInvest",
-    },
-  ];
-
-  return (
-    <MotionSimpleGrid
-      ref={containerRef}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.5 }}
-    >
-      <Text
-        color="white"
-        mt={10}
-        mb={2}
-        fontSize="5xl"
-        textAlign="center"
-        fontWeight="bold"
-      >
-        hackathon dubs
-      </Text>
-      <SimpleGrid
-        minChildWidth="350px"
-        spacing="40px"
-        p={8}
-        justifyItems="center"
-        alignItems="center"
-        justifyContent="center"
-      >
-        {[...hackathons].map((hackathon, index) => (
-          <HackathonCard key={index} index={index} hackathon={hackathon} />
+            </div>
+            <div className="flex-1 min-w-0 py-1">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[13px] text-[#d0d0d4] font-semibold hover:text-[#9653fb] transition-colors"
+                  >
+                    {project.name}
+                  </a>
+                  <span className="text-[11px] text-[#3a3a44]">{project.event}</span>
+                </div>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#2a2a30] hover:text-[#9653fb] transition-colors flex-shrink-0"
+                >
+                  <FaGithub size={14} />
+                </a>
+              </div>
+              <p className="text-[11px] text-[#555566] mt-2 leading-relaxed line-clamp-2">
+                {project.description}
+              </p>
+            </div>
+          </div>
         ))}
-      </SimpleGrid>
-    </MotionSimpleGrid>
+      </div>
+    </WarpBlock>
   );
-};
-
-export default HackathonCards;
+}

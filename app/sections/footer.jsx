@@ -1,54 +1,29 @@
 "use client";
-import {
-  Box,
-  HStack,
-  Icon,
-  IconButton,
-  Text,
-  Tooltip,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import React from "react";
-import { FaMapPin } from "react-icons/fa";
-
-const SocialButton = ({ label, href, icon }) => {
-  return (
-    <Tooltip label={label} hasArrow>
-      <IconButton
-        as="a"
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={label}
-        icon={React.cloneElement(icon, { size: "1.25vh" })}
-        size="md"
-        bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
-        _hover={{
-          bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
-        }}
-        isRound
-      />
-    </Tooltip>
-  );
-};
 
 export default function Footer() {
   return (
-    <Box
-      color="gray.200"
-      h="75px"
-      borderTopWidth={1}
-      borderStyle="solid"
-      borderColor="gray.800"
-      display="flex"
-      alignItems="center"
-      justifyContent="flex-start"
-      paddingLeft={8}
-    >
-      <HStack spacing={2} alignItems="center" justifyContent="center" h="full">
-        <Icon as={FaMapPin} color="red.300" />
-        <Text color="gray.300">San Francisco</Text>
-      </HStack>
-    </Box>
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#111114] border-t border-white/[0.03]">
+      <div className="flex items-center justify-between px-4 md:px-6 py-1.5 border-b border-white/[0.03] text-[11px]">
+        <div className="flex items-center gap-4">
+          <span className="flex items-center gap-1.5">
+            <span className="text-[#28c840]">@</span>
+            <span className="text-[#555]">v1.0</span>
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="text-[#666]">⊙</span>
+            <span className="text-[#555]">~/site</span>
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="text-[#9653fb]">⊘</span>
+            <span className="text-[#555]">main</span>
+          </span>
+        </div>
+        <span className="text-[#3a3a3a]">san francisco</span>
+      </div>
+      <div className="flex items-center px-4 md:px-6 py-2.5">
+        <span className="text-[#9653fb] text-[13px] mr-2">$</span>
+        <span className="text-[13px] text-[#444] cursor" />
+      </div>
+    </div>
   );
 }
