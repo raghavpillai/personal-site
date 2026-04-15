@@ -29,7 +29,10 @@ export default function Me() {
             />
           </Flex>
           <Text textAlign="center" minW={10} maxW="75w" textColor="white">
-            hi, i'm raghav. i'm a co-founder @{" "}
+            hi, i'm raghav. i'm building in the cyber defense industry.
+
+            <br /><br />
+            i was previously the co-founder and ceo of{" "}
             <Link
               textColor="rgb(150, 83, 251)"
               href="https://speck.sh"
@@ -38,9 +41,7 @@ export default function Me() {
             >
               speck
             </Link>
-            
-            <br /><br />
-            i'm a yc alum (w24). i previously did ml and swe at anduril, autonomous vehicle research at utd, swe at amazon and consulting ranging from seed stage startups to f500 companies. 
+            , which got acquired in early 2026. i'm a yc alum (w24).
           </Text>
         </CardBody>
       </Card>
